@@ -1,0 +1,7 @@
+setwd("C:\\Users\\Vostro 5458\\OneDrive\\Educacao\\Coursera-DataScienceSpecialization\\4-ExploratoryDataAnalysis\\ExData_Plotting1")
+data <- read.table("household_power_consumption.txt", sep=";",skip=66637, nrows=2880, col.names=colnames(read.table("household_power_consumption.txt", sep=";", nrow=1, header=TRUE)))
+AdjustedDate <- strptime(data$Date, format="%d/%m/%Y")
+data2 <- cbind(data, AdjustedDate)
+png(file="plot1.png", width=480, height=480)
+hist(data2$Global_active_power, col = "red", xlab="Global Active Power (kilowatts)", main="Global Active Power")
+dev.off()
